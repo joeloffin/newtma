@@ -167,3 +167,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })();
 
+// Services Toggle Functionality
+(function() {
+    const schoolsBtn = document.getElementById('schools-btn');
+    const schoolsContent = document.getElementById('schools-content');
+    
+    if (schoolsBtn && schoolsContent) {
+        schoolsBtn.addEventListener('click', function() {
+            const isHidden = schoolsContent.style.display === 'none' || schoolsContent.classList.contains('hidden');
+            
+            if (isHidden) {
+                // Show content
+                schoolsContent.classList.remove('hidden');
+                schoolsContent.style.display = 'grid';
+                // Trigger reflow for animation
+                void schoolsContent.offsetHeight;
+                schoolsContent.style.opacity = '1';
+                schoolsContent.style.maxHeight = schoolsContent.scrollHeight + 'px';
+                schoolsBtn.classList.add('active');
+            } else {
+                // Hide content
+                schoolsContent.style.maxHeight = schoolsContent.scrollHeight + 'px';
+                // Trigger reflow
+                void schoolsContent.offsetHeight;
+                schoolsContent.style.opacity = '0';
+                schoolsContent.style.maxHeight = '0px';
+                setTimeout(() => {
+                    schoolsContent.style.display = 'none';
+                    schoolsContent.classList.add('hidden');
+                }, 400);
+                schoolsBtn.classList.remove('active');
+            }
+        });
+    }
+})();
+
