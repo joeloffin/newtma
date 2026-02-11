@@ -850,6 +850,91 @@ section {
     z-index: 2;
 }
 
+.section-intro-container {
+    grid-column: 1 / -1;
+    margin-bottom: 2rem;
+}
+
+.section-intro-container .section-intro {
+    font-size: 1.6rem;
+    color: white;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Schools Gallery */
+.schools-gallery-container {
+    width: 100%;
+}
+
+.schools-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.schools-gallery-item {
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.schools-gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.schools-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.schools-gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+    .schools-gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .schools-gallery-item {
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .schools-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .schools-gallery-item {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .schools-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .schools-gallery-item {
+        height: 250px;
+    }
+}
+
 /* FAQ Section */
 .faq {
     background-color: #1a1a1a;
